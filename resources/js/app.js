@@ -9,6 +9,6 @@ Vue.use(VueRouter);
 
 const app = new Vue(
     Vue.util.extend(
-    { router },
+ { router },
     App))
     .$mount('#app');

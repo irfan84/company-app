@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e093655f-5d87-4090-8440-47f3c21b0fc1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +168,7 @@
       <workItem from="1580082796646" duration="804000" />
       <workItem from="1580090293308" duration="5000" />
       <workItem from="1580097295600" duration="5383000" />
-      <workItem from="1580122612595" duration="414000" />
+      <workItem from="1580122612595" duration="1302000" />
     </task>
     <servers />
   </component>

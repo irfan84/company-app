@@ -1,5 +1,5 @@
-import IndexComponent from './components/company/IndexComponent.vue';
-import DetailsComponent from './components/company/DetailsComponent.vue';
+import IndexComponent from './components/IndexComponent.vue';
+import DetailsComponent from './components/DetailsComponent.vue';
 import VueRouter from "vue-router";
 
 const routes = [
