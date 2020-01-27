@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('/company', 'CompanyController');
+Route::resource('/contact', 'ContactController');
+
+
+Route::post('/contact/update/{id}', 'ContactController@update');
+Route::delete('/contact/delete/{id}', 'ContactController@destroy');

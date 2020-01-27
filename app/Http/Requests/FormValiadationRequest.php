@@ -23,8 +23,8 @@ class FormValiadationRequest extends FormRequest
      */
     public function rules()
     {
-        // Contact Form Field Validation Checks
 
+        /** Contact Form Field Validation Checks */
         return [
             'name' => 'required',
             'email' => 'required',

@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+/**Prevents 404 errors and uses laravel route proxy as a Vue route.*/
+
+Route::get('/{any}', function () {
     return view('welcome');
-});
+})->where('any', '.*');
