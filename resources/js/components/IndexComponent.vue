@@ -17,7 +17,8 @@
             v-on:add-company="addCompany"
             :company="company"
             :edit="edit"
-            v-on:update-company="updateCompany">
+            v-on:update-company="updateCompany"
+            :errors="errors">
         </company-form>
 
     </div>
@@ -33,6 +34,7 @@
                 uri:'/api/company',
                 companies: [],
                 company:{},
+                errors: [],
                 edit: false,
                 image: 'images/loader.gif',
                 loading: false,
@@ -56,8 +58,20 @@
                 axios.post(this.uri, this.company)
                     .then(response => {
                         console.log('Company record created successfully')
+                    })
+                    .catch(error => {
+                        if (error.response.data.errors.name){
+                        this.errors.push(error.response.data.errors.name[0]);
+                    }
+                        if (error.response.data.errors.phone){
+                            this.errors.push(error.response.data.errors.phone[0]);
+                        }
+
+                        if (error.response.data.errors.address){
+                            this.errors.push(error.response.data.errors.address[0]);
+                        }
                     });
-                location.reload();
+                // location.reload();
             },
 
             /* fetches company form data to edit*/

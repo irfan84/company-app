@@ -6,7 +6,6 @@ import App from './components/App.vue';
 window.Vue = require('vue');
 Vue.use(VueRouter);
 
-
 const app = new Vue(
     Vue.util.extend(
  { router },

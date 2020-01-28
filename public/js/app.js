@@ -1982,9 +1982,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CompanyForm',
-  props: ['add-company', 'update-company', 'company', 'edit']
+  props: ['add-company', 'update-company', 'company', 'edit', 'errors']
 });
 
 /***/ }),
@@ -2096,6 +2103,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2108,6 +2116,7 @@ __webpack_require__.r(__webpack_exports__);
       uri: '/api/company',
       companies: [],
       company: {},
+      errors: [],
       edit: false,
       image: 'images/loader.gif',
       loading: false
@@ -2127,19 +2136,32 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     /* creates new company */
     addCompany: function addCompany() {
+      var _this2 = this;
+
       axios.post(this.uri, this.company).then(function (response) {
         console.log('Company record created successfully');
-      });
-      location.reload();
+      })["catch"](function (error) {
+        if (error.response.data.errors.name) {
+          _this2.errors.push(error.response.data.errors.name[0]);
+        }
+
+        if (error.response.data.errors.phone) {
+          _this2.errors.push(error.response.data.errors.phone[0]);
+        }
+
+        if (error.response.data.errors.address) {
+          _this2.errors.push(error.response.data.errors.address[0]);
+        }
+      }); // location.reload();
     },
 
     /* fetches company form data to edit*/
     showCompany: function showCompany(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       var uri = "/api/company/".concat(id, "/edit/");
       axios.get(uri).then(function (response) {
-        _this2.company = response.data.company;
+        _this3.company = response.data.company;
       });
       this.edit = true;
     },
@@ -37625,6 +37647,24 @@ var render = function() {
       [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6" }, [
+            _vm.errors.length
+              ? _c("div", { staticClass: "alert alert-danger" }, [
+                  _c(
+                    "ul",
+                    _vm._l(_vm.errors, function(error) {
+                      return _c("li", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(error) +
+                            "\n                        "
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("label", [_vm._v("Company Name:")]),
               _vm._v(" "),
@@ -37638,7 +37678,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text" },
+                attrs: { type: "text", required: "" },
                 domProps: { value: _vm.company.name },
                 on: {
                   input: function($event) {
@@ -37668,7 +37708,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text" },
+                attrs: { type: "number", required: "" },
                 domProps: { value: _vm.company.phone },
                 on: {
                   input: function($event) {
@@ -37698,7 +37738,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text" },
+                attrs: { type: "text", required: "" },
                 domProps: { value: _vm.company.address },
                 on: {
                   input: function($event) {
@@ -37936,7 +37976,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("company-form", {
-        attrs: { company: _vm.company, edit: _vm.edit },
+        attrs: { company: _vm.company, edit: _vm.edit, errors: _vm.errors },
         on: {
           "add-company": _vm.addCompany,
           "update-company": _vm.updateCompany

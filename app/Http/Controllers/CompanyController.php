@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Http\Requests\CompanyFormRequest;
 use App\Http\Resources\CompanyCollection;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyFormRequest $request)
     {
         $company = new Company($request->all());
         $company->save();
@@ -77,7 +78,7 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyFormRequest $request, $id)
     {
         $company = Company::find($id);
         $company->update($request->all());

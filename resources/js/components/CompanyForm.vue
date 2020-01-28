@@ -6,9 +6,16 @@
         <form action="#" @submit.prevent="edit ? $emit('update-company', company.id) : $emit('add-company')">
             <div class="row">
                 <div class="col-md-6">
+                    <div class="alert alert-danger" v-if="errors.length">
+                        <ul>
+                            <li v-for="error in errors">
+                                {{error}}
+                            </li>
+                        </ul>
+                    </div>
                     <div class="form-group">
                         <label>Company Name:</label>
-                        <input type="text" class="form-control" v-model="company.name">
+                        <input type="text" class="form-control" v-model="company.name" required>
                     </div>
                 </div>
             </div>
@@ -17,7 +24,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Phone:</label>
-                        <input type="text" class="form-control" v-model="company.phone">
+                        <input type="number" class="form-control" v-model="company.phone" required>
                     </div>
                 </div>
             </div>
@@ -26,7 +33,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Address:</label>
-                        <input type="text" class="form-control" v-model="company.address">
+                        <input type="text" class="form-control" v-model="company.address" required>
                     </div>
                 </div>
             </div>
@@ -43,6 +50,6 @@
 <script>
     export default {
         name: 'CompanyForm',
-        props: ['add-company', 'update-company', 'company', 'edit']
+        props: ['add-company', 'update-company', 'company', 'edit', 'errors']
     }
 </script>

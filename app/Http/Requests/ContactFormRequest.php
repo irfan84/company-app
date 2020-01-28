@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormValiadationRequest extends FormRequest
+class ContactFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class FormValiadationRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,13 +23,8 @@ class FormValiadationRequest extends FormRequest
      */
     public function rules()
     {
-
-        /** Contact Form Field Validation Checks */
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'type' => 'required'
+            //
         ];
     }
 }
