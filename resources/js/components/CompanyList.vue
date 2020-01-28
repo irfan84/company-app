@@ -8,7 +8,6 @@
             <tr>
                         <th>ID</th>
                         <th>Companies</th>
-                        <th></th>
                         <th>Actions</th>
             </tr>
 
@@ -24,8 +23,9 @@
                             :to="{name: 'details', params: { id: company.id }}"> {{ company.name }}
                             </router-link>
                         </td>
-                        <td><button @click.prevent="$emit('show-company', company.id)" class="btn btn-primary">Edit</button></td>
-                        <td><button class="btn btn-danger">Delete</button></td>
+                        <td><button @click.prevent="$emit('show-company', company.id)" class="btn btn-primary">Edit</button>
+                            <button @click.prevent="$emit('delete-company', company.id)" class="btn btn-danger">Delete</button></td>
+
             </tr>
 
             </tbody>
@@ -37,6 +37,6 @@
 <script>
     export default {
         name: 'CompanyList',
-        props: ['companies', 'show-company', 'company']
+        props: ['companies', 'show-company', 'company', 'deletecompany']
     }
 </script>

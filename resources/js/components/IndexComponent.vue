@@ -8,6 +8,7 @@
         <company-list
             :companies="companies"
             v-on:show-company="showCompany"
+            v-on:delete-company="deleteCompany"
             :company="company">
         </company-list>
 
@@ -75,7 +76,19 @@
                     console.log('Company record updated successful')
                 });
                 location.reload();
-            }
+            },
+
+            /* deletes the company */
+            deleteCompany: function(id) {
+                let confirmBox = confirm("Do you really want to delete this?");
+                if (confirmBox) {
+                    let uri = `/api/company/delete/${id}`;
+                    axios.delete(uri).then(response => {
+                        console.log('Successfully deleted')
+                    });
+                    location.reload();
+                }
+            },
         }
     }
 </script>

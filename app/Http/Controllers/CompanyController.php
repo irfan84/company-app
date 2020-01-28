@@ -92,6 +92,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $company = Company::find($id);
+        $company->delete();
+        return response()->json('successfully deleted');
     }
 }

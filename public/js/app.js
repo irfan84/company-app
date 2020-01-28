@@ -2036,7 +2036,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CompanyList',
-  props: ['companies', 'show-company', 'company']
+  props: ['companies', 'show-company', 'company', 'deletecompany']
 });
 
 /***/ }),
@@ -2071,6 +2071,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CompanyList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CompanyList */ "./resources/js/components/CompanyList.vue");
 /* harmony import */ var _CompanyForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CompanyForm */ "./resources/js/components/CompanyForm.vue");
+//
 //
 //
 //
@@ -2150,6 +2151,19 @@ __webpack_require__.r(__webpack_exports__);
         console.log('Company record updated successful');
       });
       location.reload();
+    },
+
+    /* deletes the company */
+    deleteCompany: function deleteCompany(id) {
+      var confirmBox = confirm("Do you really want to delete this?");
+
+      if (confirmBox) {
+        var uri = "/api/company/delete/".concat(id);
+        axios["delete"](uri).then(function (response) {
+          console.log('Successfully deleted');
+        });
+        location.reload();
+      }
     }
   }
 });
@@ -37816,10 +37830,22 @@ var render = function() {
                     }
                   },
                   [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.$emit("delete-company", company.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
                 )
-              ]),
-              _vm._v(" "),
-              _vm._m(1, true)
+              ])
             ])
           })
         ],
@@ -37839,18 +37865,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Companies")]),
         _vm._v(" "),
-        _c("th"),
-        _vm._v(" "),
         _c("th", [_vm._v("Actions")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")])
     ])
   }
 ]
@@ -37913,7 +37929,10 @@ var render = function() {
       _vm._v(" "),
       _c("company-list", {
         attrs: { companies: _vm.companies, company: _vm.company },
-        on: { "show-company": _vm.showCompany }
+        on: {
+          "show-company": _vm.showCompany,
+          "delete-company": _vm.deleteCompany
+        }
       }),
       _vm._v(" "),
       _c("company-form", {

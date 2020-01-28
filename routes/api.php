@@ -18,8 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/company', 'CompanyController');
-Route::resource('/contact', 'ContactController');
 Route::post('/company/update/{id}', 'CompanyController@update');
+Route::delete('/company/delete/{id}', 'CompanyController@destroy');
 
+Route::resource('/contact', 'ContactController');
 Route::post('/contact/update/{id}', 'ContactController@update');
 Route::delete('/contact/delete/{id}', 'ContactController@destroy');
