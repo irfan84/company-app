@@ -41,7 +41,7 @@
             }
         },
 
-        //fetches list of companies
+        /* fetches list of companies */
         created() {
             axios.get(this.uri).then(response => {
                 this.companies = response.data.data;
@@ -53,6 +53,7 @@
         },
 
         methods: {
+
             /* creates new company */
             addCompany: function(){
                 axios.post(this.uri, this.company)
@@ -74,7 +75,7 @@
                 location.reload();
             },
 
-            /* fetches company form data to edit*/
+            /* fetches company to edit*/
             showCompany: function(id){
                 let uri = `/api/company/${id}/edit/`;
                 axios.get(uri).then((response) => {

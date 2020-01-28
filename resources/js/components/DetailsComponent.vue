@@ -40,6 +40,8 @@
                 loading: false
             }
         },
+
+        /* fetches company details and its contact list */
         created() {
             let uri = `/api/company/${this.$route.params.id}`;
             axios.get(uri).then((response) => {
@@ -48,6 +50,8 @@
             });
         },
         methods: {
+
+            /* Creates new contact */
             addContact:function() {
                 let uri = `/api/contact`;
                 axios.post(uri, this.contact)
@@ -71,6 +75,7 @@
                 location.reload();
             },
 
+            /* deletes the contact */
             deleteContact: function(id) {
                 let confirmBox = confirm("Do you really want to delete this?");
                 if (confirmBox) {
@@ -81,6 +86,8 @@
                     location.reload();
                 }
             },
+
+            /* fetches contact to edit */
             showContact: function(id){
                 let uri = `/api/contact/${id}/edit/`;
                 axios.get(uri).then((response) => {
@@ -88,6 +95,8 @@
                 });
                 this.edit = true;
             },
+
+            /* Updates the contact */
             updateContact:function(id) {
                 let uri = `/api/contact/update/${id}`;
                 axios.post(uri, this.contact).then(response => {
