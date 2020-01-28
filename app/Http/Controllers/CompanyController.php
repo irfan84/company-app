@@ -64,7 +64,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-
+        $company = Company::find($id);
+        return response()->json([
+            'company' => $company
+        ], 200);
     }
 
     /**
@@ -76,7 +79,9 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $company = Company::find($id);
+        $company->update($request->all());
+        return response()->json('successfully updated');
     }
 
     /**
