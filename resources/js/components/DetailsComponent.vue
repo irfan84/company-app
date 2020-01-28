@@ -5,12 +5,14 @@
             <img class="rounded mx-auto d-block" :src="image" alt="loader">
         </div>
 
+        <!-- company details component -->
         <contact-list :company="company"
                          :contact="contact"
                          v-on:show-contact="showContact"
                          v-on:delete-contact="deleteContact">
         </contact-list>
 
+        <!-- Contact update and edit form component -->
         <contact-form
             v-on:update-contact="updateContact"
             v-on:add-contact="addContact"

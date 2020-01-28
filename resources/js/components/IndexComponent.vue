@@ -4,7 +4,7 @@
             <img class="rounded mx-auto d-block" :src="image" alt="loader">
         </div>
 
-        <!-- list of companies -->
+        <!-- list of companies component -->
         <company-list
             :companies="companies"
             v-on:show-company="showCompany"
@@ -12,7 +12,7 @@
             :company="company">
         </company-list>
 
-        <!-- Company update and edit form -->
+        <!-- Company update and edit form component -->
         <company-form
             v-on:add-company="addCompany"
             :company="company"
