@@ -2098,7 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ContactForm',
   props: ['edit', 'contact', 'update-contact', 'add-contact']
@@ -2230,9 +2229,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addContact: function addContact() {
+      var _this2 = this;
+
       var uri = "/api/contact";
       axios.post(uri, this.contact).then(function (response) {
         console.log('Contact Record created Successfully');
+      })["catch"](function (error) {
+        if (error.response.data.errors.name) {
+          _this2.errors.push(error.response.data.errors.name[0]);
+        }
+
+        if (error.response.data.errors.phone) {
+          _this2.errors.push(error.response.data.errors.phone[0]);
+        }
+
+        if (error.response.data.errors.email) {
+          _this2.errors.push(error.response.data.errors.email[0]);
+        }
+
+        if (error.response.data.errors.type) {
+          _this2.errors.push(error.response.data.errors.type[0]);
+        }
       });
       location.reload();
     },
@@ -2248,11 +2265,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     showContact: function showContact(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       var uri = "/api/contact/".concat(id, "/edit/");
       axios.get(uri).then(function (response) {
-        _this2.contact = response.data.contact;
+        _this3.contact = response.data.contact;
       });
       this.edit = true;
     },
@@ -2353,7 +2370,8 @@ __webpack_require__.r(__webpack_exports__);
         if (error.response.data.errors.address) {
           _this2.errors.push(error.response.data.errors.address[0]);
         }
-      }); // location.reload();
+      });
+      location.reload();
     },
 
     /* fetches company form data to edit*/
@@ -38938,21 +38956,15 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Select contact type")
+                _c("option", { attrs: { value: "Primary" } }, [
+                  _vm._v("Primary")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Primary Contact" } }, [
-                  _vm._v("Primary Contact")
+                _c("option", { attrs: { value: "Secondary" } }, [
+                  _vm._v("Secondary")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Secondary Contact" } }, [
-                  _vm._v("Secondary Contact")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Other Contact" } }, [
-                  _vm._v("Other Contact")
-                ])
+                _c("option", { attrs: { value: "Other" } }, [_vm._v("Other")])
               ]
             )
           ]),

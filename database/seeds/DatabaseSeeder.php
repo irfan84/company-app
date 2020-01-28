@@ -11,6 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        DB::table('companies')->truncate();
+        DB::table('contacts')->truncate();
+
+        factory(App\Company::class, 5)->create()->each(function($company){
+        $company->contacts()->save(factory(App\Contact::class)->make());
+        });
     }
+
 }

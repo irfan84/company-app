@@ -52,7 +52,21 @@
                 axios.post(uri, this.contact)
                     .then(response => {
                         console.log('Contact Record created Successfully')
-                    });
+                    })
+            .catch(error => {
+                    if (error.response.data.errors.name){
+                        this.errors.push(error.response.data.errors.name[0]);
+                    }
+                    if (error.response.data.errors.phone){
+                        this.errors.push(error.response.data.errors.phone[0]);
+                    }
+                    if (error.response.data.errors.email){
+                        this.errors.push(error.response.data.errors.email[0]);
+                    }
+                    if (error.response.data.errors.type){
+                        this.errors.push(error.response.data.errors.type[0]);
+                    }
+                });
                 location.reload();
             },
 

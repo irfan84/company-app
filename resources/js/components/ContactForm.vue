@@ -24,10 +24,9 @@
                 <div class="form-group">
                     <label>Contact type</label>
                     <select v-model="contact.type" class="form-control" required>
-                        <option value="">Select contact type</option>
-                        <option value="Primary Contact">Primary Contact</option>
-                        <option value="Secondary Contact">Secondary Contact</option>
-                        <option value="Other Contact">Other Contact</option>
+                        <option value="Primary">Primary</option>
+                        <option value="Secondary">Secondary</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 

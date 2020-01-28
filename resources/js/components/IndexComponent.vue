@@ -71,7 +71,7 @@
                             this.errors.push(error.response.data.errors.address[0]);
                         }
                     });
-                // location.reload();
+                location.reload();
             },
 
             /* fetches company form data to edit*/
