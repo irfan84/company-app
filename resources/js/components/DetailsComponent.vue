@@ -15,7 +15,8 @@
             v-on:update-contact="updateContact"
             v-on:add-contact="addContact"
             :edit="edit"
-            :contact="contact">
+            :contact="contact"
+            :errors="errors">
 
         </contact-form>
 

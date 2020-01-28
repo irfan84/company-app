@@ -1989,6 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CompanyForm',
   props: ['add-company', 'update-company', 'company', 'edit', 'errors']
@@ -2098,9 +2099,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ContactForm',
-  props: ['edit', 'contact', 'update-contact', 'add-contact']
+  props: ['edit', 'contact', 'update-contact', 'add-contact', 'errors']
 });
 
 /***/ }),
@@ -2175,6 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ContactForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactForm */ "./resources/js/components/ContactForm.vue");
 /* harmony import */ var _ContactList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactList */ "./resources/js/components/ContactList.vue");
+//
 //
 //
 //
@@ -38493,7 +38505,35 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Create Company")]),
+    _c(
+      "h1",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.edit,
+            expression: "!edit"
+          }
+        ]
+      },
+      [_vm._v("Create Company")]
+    ),
+    _vm._v(" "),
+    _c(
+      "h1",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.edit,
+            expression: "edit"
+          }
+        ]
+      },
+      [_vm._v("Update Company")]
+    ),
     _vm._v(" "),
     _c(
       "form",
@@ -38572,7 +38612,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "number", required: "" },
+                attrs: { type: "text", required: "" },
                 domProps: { value: _vm.company.phone },
                 on: {
                   input: function($event) {
@@ -38795,9 +38835,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row table" }, [
+  return _c("div", { staticClass: "row mt-4" }, [
     _c("div", { staticClass: "col-md-12" }, [
-      _c("h3", { staticClass: "table" }, [_vm._v("Add Contact")]),
+      _c(
+        "h4",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.edit,
+              expression: "!edit"
+            }
+          ]
+        },
+        [_vm._v("Create Contact")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h4",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.edit,
+              expression: "edit"
+            }
+          ]
+        },
+        [_vm._v("Update Contact")]
+      ),
       _vm._v(" "),
       _c(
         "form",
@@ -38813,6 +38881,24 @@ var render = function() {
           }
         },
         [
+          _vm.errors.length
+            ? _c("div", { staticClass: "alert alert-danger" }, [
+                _c(
+                  "ul",
+                  _vm._l(_vm.errors, function(error) {
+                    return _c("li", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(error) +
+                          "\n                    "
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -38840,8 +38926,6 @@ var render = function() {
               }
             }
           }),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#form" } }),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", [_vm._v("Name")]),
@@ -38918,7 +39002,9 @@ var render = function() {
                   _vm.$set(_vm.contact, "phone", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _c("span")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
@@ -39189,7 +39275,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("contact-form", {
-        attrs: { edit: _vm.edit, contact: _vm.contact },
+        attrs: { edit: _vm.edit, contact: _vm.contact, errors: _vm.errors },
         on: {
           "update-contact": _vm.updateContact,
           "add-contact": _vm.addContact

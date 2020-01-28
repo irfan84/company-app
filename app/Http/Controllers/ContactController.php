@@ -76,7 +76,7 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactFormRequest $request, $id)
     {
         $contact = Contact::find($id);
         $contact->update($request->all());

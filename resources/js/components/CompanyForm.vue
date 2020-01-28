@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Create Company</h1>
+        <h1 v-show="!edit">Create Company</h1>
+        <h1 v-show="edit">Update Company</h1>
 
         <!-- Company add/edit form starts here -->
         <form action="#" @submit.prevent="edit ? $emit('update-company', company.id) : $emit('add-company')">
@@ -24,7 +25,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Phone:</label>
-                        <input type="number" class="form-control" v-model="company.phone" required>
+                        <input type="text" class="form-control" v-model="company.phone" required>
                     </div>
                 </div>
             </div>

@@ -3,12 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e093655f-5d87-4090-8440-47f3c21b0fc1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ContactFormRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ContactFormRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_26_235919_create_contacts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_26_235919_create_contacts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CompanyForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CompanyForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/ContactForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ContactForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/DetailsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/DetailsComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/IndexComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/IndexComponent.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +137,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cms" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -172,7 +174,7 @@
       <workItem from="1580097295600" duration="5383000" />
       <workItem from="1580122612595" duration="1677000" />
       <workItem from="1580168638588" duration="18126000" />
-      <workItem from="1580202895476" duration="10876000" />
+      <workItem from="1580202895476" duration="15818000" />
     </task>
     <servers />
   </component>
@@ -184,13 +186,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1580172266002" />
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1580083180630">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1580217763896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580083180630" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580083054080">
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580217763896" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580245286746">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580083054080" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580245286746" />
   </component>
 </project>
